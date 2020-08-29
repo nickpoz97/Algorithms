@@ -1,2 +1,5 @@
-# Output
-**/out/
+# Java Output
+Java/*/out/
+
+# IDE files
+Java/*/.idea
