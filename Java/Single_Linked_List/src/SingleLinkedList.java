@@ -27,16 +27,16 @@ public class SingleLinkedList extends LinkedList{
         Node tempNode = this.head;
 
         for (int i = 0 ; i < position - 1 ; i++){ // loop until the node before position
-            tempNode = tempNode.getPointer();
+            tempNode = tempNode.getNext();
         }
 
-        newNode.setPointer(tempNode.getPointer());
-        tempNode.setPointer(newNode);
+        newNode.setNext(tempNode.getNext());
+        tempNode.setNext(newNode);
     }
 
     private void insertOnTail(Node newNode){
-        tail.setPointer(newNode);
-        newNode.setPointer(null); // optional
+        tail.setNext(newNode);
+        newNode.setNext(null); // optional
         tail = newNode;
     }
 
@@ -45,7 +45,7 @@ public class SingleLinkedList extends LinkedList{
             this.tail = newNode;
         }
 
-        newNode.setPointer(this.head);
+        newNode.setNext(this.head);
         this.head = newNode;
     }
 
@@ -73,10 +73,10 @@ public class SingleLinkedList extends LinkedList{
         Node tempNode = this.head;
 
         for (int i = 0 ; i < position - 1 ; i++){ // loop until the node before position
-            tempNode = tempNode.getPointer();
+            tempNode = tempNode.getNext();
         }
 
-        tempNode.setPointer(tempNode.getPointer().getPointer());
+        tempNode.setNext(tempNode.getNext().getNext());
     }
 
     public void deleteList() {
@@ -87,10 +87,10 @@ public class SingleLinkedList extends LinkedList{
     private void deleteLastNode() {
         Node tempNode = this.head;
 
-        while(tempNode.getPointer() != this.tail){
-            tempNode = tempNode.getPointer();
+        while(tempNode.getNext() != this.tail){
+            tempNode = tempNode.getNext();
         }
-        tempNode.setPointer(null);
+        tempNode.setNext(null);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class SingleLinkedList extends LinkedList{
                 return true;
             }
             else{
-                tempNode = tempNode.getPointer();
+                tempNode = tempNode.getNext();
             }
         }
 
@@ -116,7 +116,7 @@ public class SingleLinkedList extends LinkedList{
         Node tempNode = this.head;
         while (tempNode != null){
             System.out.print(tempNode.getValue() + " -> ");
-            tempNode = tempNode.getPointer();
+            tempNode = tempNode.getNext();
         }
     }
 }

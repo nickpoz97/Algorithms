@@ -1,14 +1,13 @@
 public class Node {
     private int value;
-    private Node pointer;
+    private Node next = null;
 
     public Node(int value){
         this.value = value;
-        this.pointer = null;
     }
 
-    public Node getPointer(){
-        return pointer;
+    public Node getNext(){
+        return next;
     }
 
     public void setValue(int value) {
@@ -19,7 +18,7 @@ public class Node {
         return value;
     }
 
-    public void setPointer(Node pointer){
-        this.pointer = pointer;
+    public void setNext(Node next){
+        this.next = next;
     }
 }
