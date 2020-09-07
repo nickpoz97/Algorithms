@@ -3,3 +3,6 @@ Java/*/out/
 
 # IDE files
 Java/*/.idea
+
+#IML files
+Java/*/*.iml
