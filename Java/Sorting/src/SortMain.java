@@ -11,7 +11,7 @@ public class SortMain {
 
         SortedArray sa = new SortedArray(a);
         sa.printArray();
-        sa.sort("bucketsort");
+        sa.sort("quicksort");
         sa.printArray();
     }
 }

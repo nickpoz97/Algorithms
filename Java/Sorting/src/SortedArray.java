@@ -19,6 +19,12 @@ public class SortedArray{
         else if(sortingAlgorithm.toLowerCase().equals("bucketsort")){
             buckeSort();
         }
+        else if(sortingAlgorithm.toLowerCase().equals("mergesort")){
+            mergeSortInterface();
+        }
+        else if(sortingAlgorithm.toLowerCase().equals("quicksort")){
+            quickSortInterface();
+        }
     }
 
     private void swap(int ia, int ib){
@@ -94,6 +100,63 @@ public class SortedArray{
                 i++;
             }
         }
+    }
+
+    private void mergeSortInterface(){
+        int min = 0;
+        int max = arr.length-1;
+        mergeSort(min, max);
+    }
+
+    private void mergeSort(int l, int r){
+        if(l < r){
+            int m = (l + r)/2;
+            mergeSort(l, m);
+            mergeSort(m+1, r);
+            merge(l, r, m);
+        }
+    }
+
+    private void merge(int l, int r, int m) {
+        int L[] = Arrays.copyOfRange(arr, l, m + 1);
+        int R[] = Arrays.copyOfRange(arr, m + 1, r + 1);
+        int li = 0;
+        int ri = 0;
+        for (int i = l; i <= r; i++)
+            if (ri >= R.length || (li < L.length && L[li] <= R[ri])) {
+                arr[i] = L[li];
+                li++;
+            } else{
+                arr[i] = R[ri];
+                ri++;
+            }
+    }
+
+    private void quickSortInterface(){
+        quickSort(0, arr.length-1);
+    }
+
+    private void quickSort(int l, int r){ // min index and max index
+        if(l<r) {
+            int p = partition(l, r);
+            quickSort(l, p - 1);
+            quickSort(p + 1, r);
+        }
+    }
+
+    private int partition(int l, int r){
+        int pValue = arr[r];
+        int j = l; // index for searching min values
+        int i = l-1; // last number less than arr[pivot] during ieterations
+
+        while(j<=r){
+            if(arr[j] <= pValue){
+                swap(++i, j);
+            }
+            j++;
+        }
+
+        return i;
     }
 
 }
